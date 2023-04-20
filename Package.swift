@@ -16,7 +16,7 @@ let package = Package(
     dependencies: [
         // Dependencies declare other packages that this package depends on.
         // .package(url: /* package url */, from: "1.0.0"),
-        .package(url: "https://github.com/googleads/swift-package-manager-google-mobile-ads", .upToNextMajor(from: "10.0.2")),
+        .package(url: "https://github.com/googleads/swift-package-manager-google-mobile-ads", .upToNextMajor(from: "10.3.0")),
         
     ],
     targets: [
@@ -37,8 +37,8 @@ let package = Package(
                 path: "MyDFPAdapterWrapper"
                ),
         //core
-        .binaryTarget(name: "MyAdSDK", url: "https://github.com/torongo-azerion/MyAdSDKDependencies/raw/main/MyAdSDK.zip", checksum: "9ba5f39ac5b3fe962bb187335fe98276c1bfb006c874a9b6cf49707e8788c1fc"),
+        .binaryTarget(name: "MyAdSDK", path: "MyAdSDK.xcframework"),
         //dfp
-        .binaryTarget(name: "MyDFPAdapter", url: "https://github.com/torongo-azerion/MyAdSDKDependencies/raw/main/MyDFPAdapter.zip", checksum: "2fda37d956185e63429330bc7769b0b892216fc527ed11ed5807e6d6356c1587"),
+        .binaryTarget(name: "MyDFPAdapter", path: "MyDFPAdapter.xcframework"),
     ]
 )
