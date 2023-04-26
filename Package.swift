@@ -10,11 +10,11 @@ let package = Package(
         // Products define the executables and libraries a package produces, and make them visible to other packages.
         .library(
             name: "MyAdSDK",
-            targets: ["MyAdSDKWrapper"]
+            targets: ["MyAdSDKTarget"]
         ),
         .library(
             name: "MyDFPAdapter",
-            targets: ["MyDFPAdapterWrapper"]
+            targets: ["MyDFPAdapterTarget"]
         )
     ],
     dependencies: [
@@ -26,13 +26,13 @@ let package = Package(
     targets: [
         // Targets are the basic building blocks of a package. A target can define a module or a test suite.
         // Targets can depend on other targets in this package, and on products in packages this package depends on.
-        .target(name: "MyAdSDKWrapper",
+        .target(name: "MyAdSDKTarget",
                 dependencies: [
                     .target(name: "MyAdSDK", condition: .when(platforms: [.iOS])),
                 ],
                 path: "MyAdSDKWrapper"
                ),
-        .target(name: "MyDFPAdapterWrapper",
+        .target(name: "MyDFPAdapterTarget",
                 dependencies: [
                     .target(name: "MyDFPAdapter", condition: .when(platforms: [.iOS])),
                     .product(name: "GoogleMobileAds", package: "swift-package-manager-google-mobile-ads"),
@@ -43,5 +43,7 @@ let package = Package(
         .binaryTarget(name: "MyAdSDK", path: "MyAdSDK.xcframework"),
         //dfp
         .binaryTarget(name: "MyDFPAdapter", path: "MyDFPAdapter.xcframework"),
-    ]
+    ],
+    cLanguageStandard: .c99,
+    cxxLanguageStandard: .gnucxx14
 )
