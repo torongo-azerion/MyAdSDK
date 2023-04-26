@@ -37,7 +37,10 @@ let package = Package(
                     .target(name: "MyDFPAdapter", condition: .when(platforms: [.iOS])),
                     .product(name: "GoogleMobileAds", package: "swift-package-manager-google-mobile-ads"),
                 ],
-                path: "MyDFPAdapterWrapper"
+                path: "MyDFPAdapterWrapper",
+                linkerSettings: [
+                    .linkedFramework("JavaScriptCore"),
+                ]
                ),
         //core
         .binaryTarget(name: "MyAdSDK", path: "MyAdSDK.xcframework"),
