@@ -43,7 +43,5 @@ let package = Package(
         .binaryTarget(name: "MyAdSDK", path: "MyAdSDK.xcframework"),
         //dfp
         .binaryTarget(name: "MyDFPAdapter", path: "MyDFPAdapter.xcframework"),
-    ],
-    cLanguageStandard: .c99,
-    cxxLanguageStandard: .gnucxx14
+    ]
 )

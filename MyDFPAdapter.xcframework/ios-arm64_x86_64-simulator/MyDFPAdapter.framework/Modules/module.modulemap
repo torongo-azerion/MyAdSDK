@@ -1,0 +1,11 @@
+framework module MyDFPAdapter {
+  umbrella header "MyDFPAdapter.h"
+
+  export *
+  module * { export * }
+}
+
+module MyDFPAdapter.Swift {
+  header "MyDFPAdapter-Swift.h"
+  requires objc
+}
