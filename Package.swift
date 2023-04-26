@@ -12,11 +12,15 @@ let package = Package(
             name: "MyAdSDK",
             targets: ["MyAdSDKWrapper"]
         ),
+        .library(
+            name: "MyDFPAdapter",
+            targets: ["MyDFPAdapterWrapper"]
+        )
     ],
     dependencies: [
         // Dependencies declare other packages that this package depends on.
         // .package(url: /* package url */, from: "1.0.0"),
-        .package(url: "https://github.com/googleads/swift-package-manager-google-mobile-ads", .upToNextMajor(from: "10.3.0")),
+        .package(url: "https://github.com/googleads/swift-package-manager-google-mobile-ads", .upToNextMajor(from: "10.0.2")),
         
     ],
     targets: [
@@ -25,7 +29,6 @@ let package = Package(
         .target(name: "MyAdSDKWrapper",
                 dependencies: [
                     .target(name: "MyAdSDK", condition: .when(platforms: [.iOS])),
-                    .target(name: "MyDFPAdapterWrapper", condition: .when(platforms: [.iOS])),
                 ],
                 path: "MyAdSDKWrapper"
                ),
